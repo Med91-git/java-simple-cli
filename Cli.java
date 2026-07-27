@@ -1,6 +1,5 @@
 import java.util.Scanner;
-import java.time.LocalDate; // import the LocalDate class
-
+import java.time.LocalDate; 
 
 public class Cli {
 
@@ -21,12 +20,8 @@ public class Cli {
 			} 
 			else if (command.equals("date")) {
 				LocalDate currentDate = LocalDate.now(); // Create the date object
-				System.out.println(currentDate); // Display current date
-
-
+				output = String.valueOf(currentDate); // Display current date into string format
 			}
-
-			
 			else {
 				// String concatenation
 				output = "Command '" + command + "' not found.";
