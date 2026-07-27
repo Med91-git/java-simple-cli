@@ -1,6 +1,8 @@
 import java.util.Scanner;
 import java.time.LocalDate; 
 import java.time.LocalTime;
+import java.time.LocalDateTime;
+
 
 public class Cli {
 
@@ -26,6 +28,10 @@ public class Cli {
 			else if (command.equals("time")) {
 				LocalTime currentTime = LocalTime.now(); // Create the time object
 				output = String.valueOf(currentTime); // Display current date into string format
+			}
+			else if (command.equals("datetime")) {
+				LocalDateTime currentDateTime = LocalDateTime.now(); // Create the date time object
+				output = String.valueOf(currentDateTime); // Display current date time into string format
 			}
 			else {
 				// String concatenation
