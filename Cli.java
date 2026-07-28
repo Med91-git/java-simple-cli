@@ -43,6 +43,14 @@ public class Cli {
 			        output = myUserAccountname;
 		        
 			}
+			else if (command.equals("userhome")) {
+
+			        // get my user working directory in the system
+			        String userWorkingDirectory = System.getProperty("user.home");
+
+			        output = userWorkingDirectory;
+		        
+			}
 			else {
 				// String concatenation
 				output = "Command '" + command + "' not found.";
