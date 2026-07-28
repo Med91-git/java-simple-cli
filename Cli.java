@@ -61,6 +61,20 @@ public class Cli {
 			        output = systemName + "(" + systemRelease + ")";
 		        
 			}
+			else if (command.equals("printenv")) {
+
+			        // getting some values environment variables
+			        
+			        //String tempEnvVariable = System.getenv("TEMP");
+			        String intellijEnvVariable = System.getenv("Intellij IDEA");
+			        //String javaEnvVariable = System.getenv("JAVA_HOME");
+
+			        if (intellijEnvVariable != null) {
+
+				    output = intellijEnvVariable;
+			        }
+			        
+			}
 			else {
 				// String concatenation
 				output = "Command '" + command + "' not found.";
