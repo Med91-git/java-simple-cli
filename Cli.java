@@ -46,9 +46,9 @@ public class Cli {
 			else if (command.equals("userhome")) {
 
 			        // get my user working directory in the system
-			        String userWorkingDirectory = System.getProperty("user.home");
+			        String userHomeDirectory = System.getProperty("user.home");
 
-			        output = userWorkingDirectory;
+			        output = userHomeDirectory;
 		        
 			}
 			else {
