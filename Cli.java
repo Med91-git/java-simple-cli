@@ -12,6 +12,8 @@ public class Cli {
     //     - void: it doesn't return a value (aka procedure)
     //     - main: the required method name
     //     - String[] args: so it can receive command-line arguments
+
+
     public static void main(String[] args) {
 		Scanner scanner = new Scanner(System.in); // Listen to the standard input (console)
 		System.out.print("> "); // Prompt
@@ -32,6 +34,14 @@ public class Cli {
 			else if (command.equals("datetime")) {
 				LocalDateTime currentDateTime = LocalDateTime.now(); // Create the date time object
 				output = String.valueOf(currentDateTime); // Display current date time into string format
+			}
+			else if (command.equals("useraccount")) {
+
+			        // get my user account in the system
+			        String myUserAccountname = System.getProperty("user.name");
+
+			        output = myUserAccountname;
+		        
 			}
 			else {
 				// String concatenation
