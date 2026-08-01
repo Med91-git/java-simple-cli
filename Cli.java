@@ -109,6 +109,42 @@ public class Cli {
 
 
 			}
+			else if (mainCommand.equals("echo")) {
+
+				// Breaking down the arguments in command line
+
+				String commandLineArgs = commandSplitted[1]; // Getting args from command line with string format
+
+				String[] splittedArgs = commandLineArgs.split(" ", 0); // Build an array from arguments with string format
+				
+
+				// Checking argument number
+
+
+				if (splittedArgs.length == 0) {
+
+				    output = "la commande echo a besoin d'un argument au minimum... Rééssayez";
+
+				}
+				
+				else if (splittedArgs.length == 1) {
+
+				    output = splittedArgs[0];
+
+				    
+				}
+				else if (splittedArgs.length > 1) {
+
+				    for (String arg : splittedArgs) {
+
+				       output += arg + " ";
+
+				    }
+
+				}
+
+			}
+
 			else {
 				// String concatenation
 				output = "Command '" + command + "' not found.";
