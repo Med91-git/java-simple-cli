@@ -2,6 +2,8 @@ import java.util.Scanner;
 import java.time.LocalDate; 
 import java.time.LocalTime;
 import java.time.LocalDateTime;
+import java.util.Map;
+
 
 
 public class Cli {
@@ -65,6 +67,8 @@ public class Cli {
 			boolean isLogoutExecuted = isCommandExecuted(command,"logout");
 			boolean isEchoExecuted = isCommandExecuted(mainCommand,"echo");
 			boolean isPrintExecuted = isCommandExecuted(mainCommand,"print");
+			boolean isPrintenvExecuted = isCommandExecuted(mainCommand,"printenv");
+
 			
 			if (isExitExecuted == true || isLogoutExecuted == true) {
 
@@ -109,28 +113,25 @@ public class Cli {
 			        output = systemName + "(" + systemRelease + ")";
 		        
 			}
-			else if (mainCommand.equals("printenv")) {
+			else if (isPrintenvExecuted == true){
 
-				// Build the entire command
-			
-				String entireCommand = "printenv" + " " + commandArgument;
 
-				
-				if (command.equals(entireCommand)) {
-
-			        	String environmentVariable = System.getenv(commandArgument);
-			        
-			        	if (environmentVariable != null) {
-
-			            		output = environmentVariable;
-			        	}
-
+			   // Get all the user environment variables
 				   
-				}
-						
+			   Map<String, String> environmentVariables = System.getenv();
 
+			   // Display all environment variables's values and keys
+			   
+			   for (Map.Entry<String, String> environmentVariable : environmentVariables.entrySet()) {
 
-			}			
+				String environmentVariableKey = environmentVariable.getKey();
+				String environmentVariableValue = environmentVariable.getValue();
+				
+				System.out.println(environmentVariableKey + " : " + environmentVariableValue);				
+				
+			   }
+
+			}		
 			else if (isEchoExecuted == true || isPrintExecuted == true) {
 
 			  // Breaking down the arguments in command line
