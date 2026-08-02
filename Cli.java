@@ -24,9 +24,20 @@ public class Cli {
 
     }
 
+    public static boolean isEcho(String userInput, String commandToExecute) {
 
-    
-    
+	// Checking the command line         
+
+	if (userInput.equals(commandToExecute)) {
+
+	    return true;
+	}
+	return false; 
+
+
+    }
+
+
     public static void main(String[] args) {
 		Scanner scanner = new Scanner(System.in); // Listen to the standard input (console)
 		System.out.print("> "); // Prompt
@@ -65,6 +76,8 @@ public class Cli {
 
 			boolean isExitCommandExecuted = isExit(command,"exit");
 			boolean isLogoutCommandExecuted = isExit(command,"logout");
+			boolean isEchoCommandExecuted = isEcho(mainCommand,"echo");
+			boolean isPrintCommandExecuted = isEcho(mainCommand,"print");
 			
 			if (isExitCommandExecuted == true || isLogoutCommandExecuted == true) {
 
@@ -130,41 +143,41 @@ public class Cli {
 						
 
 
-			}
-			else if (mainCommand.equals("echo")) {
+			}			
+			else if (isEchoCommandExecuted == true || isPrintCommandExecuted == true) {
 
-				// Breaking down the arguments in command line
+			  // Breaking down the arguments in command line
 
-				String commandLineArgs = commandSplitted[1]; // Getting args from command line with string format
+			  String commandLineArgs = commandSplitted[1];
 
-				String[] splittedArgs = commandLineArgs.split(" ", 0); // Build an array from arguments with string format
-				
-
-				// Checking argument number
+			  String[] splittedArgs = commandLineArgs.split(" ", 0); // Build an array from arguments with string format
 
 
-				if (splittedArgs.length == 0) {
+			  /*if (command.equals("echo")) {
 
-				    output = "la commande echo a besoin d'un argument au minimum... Rééssayez";
+			      output = "Cette commande a besoin d'un argument au minimum... Rééssayez";
 
-				}
-				
-				else if (splittedArgs.length == 1) {
+			  }*/
 
-				    output = splittedArgs[0];
 
-				    
-				}
-				else if (splittedArgs.length > 1) {
+			  // Checking argument number
 
-				    for (String arg : splittedArgs) {
 
-				       output += arg + " ";
+			  if (splittedArgs.length == 1) {
 
-				    }
+			      output = splittedArgs[0];
 
-				}
+			  }
+			  else if (splittedArgs.length > 1) {
 
+			      for (String arg : splittedArgs) {
+
+				output += arg + " ";
+
+			      }
+
+			  }
+			
 			}
 
 			else {
