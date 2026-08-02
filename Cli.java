@@ -14,26 +14,13 @@ public class Cli {
     //     - String[] args: so it can receive command-line arguments
 
 
-    public static boolean isExit(String userInput, String commandToExecute) {
+    public static boolean isCommandExecuted(String userInput, String commandToExecute) {
 
 	if (userInput.equals(commandToExecute)) {
 
 	    return true;
 	}
 	return false; 
-
-    }
-
-    public static boolean isEcho(String userInput, String commandToExecute) {
-
-	// Checking the command line         
-
-	if (userInput.equals(commandToExecute)) {
-
-	    return true;
-	}
-	return false; 
-
 
     }
 
@@ -71,15 +58,15 @@ public class Cli {
 
 			String output = ""; // A variable named output of type String
 
-			// Get the value returned by the exit function
+			// Get values returned by the alias method
 
 
-			boolean isExitCommandExecuted = isExit(command,"exit");
-			boolean isLogoutCommandExecuted = isExit(command,"logout");
-			boolean isEchoCommandExecuted = isEcho(mainCommand,"echo");
-			boolean isPrintCommandExecuted = isEcho(mainCommand,"print");
+			boolean isExitExecuted = isCommandExecuted(command,"exit");
+			boolean isLogoutExecuted = isCommandExecuted(command,"logout");
+			boolean isEchoExecuted = isCommandExecuted(mainCommand,"echo");
+			boolean isPrintExecuted = isCommandExecuted(mainCommand,"print");
 			
-			if (isExitCommandExecuted == true || isLogoutCommandExecuted == true) {
+			if (isExitExecuted == true || isLogoutExecuted == true) {
 
 			  break; // Forces exit of the while loop
 			
@@ -144,7 +131,7 @@ public class Cli {
 
 
 			}			
-			else if (isEchoCommandExecuted == true || isPrintCommandExecuted == true) {
+			else if (isEchoExecuted == true || isPrintExecuted == true) {
 
 			  // Breaking down the arguments in command line
 
