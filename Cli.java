@@ -14,6 +14,19 @@ public class Cli {
     //     - String[] args: so it can receive command-line arguments
 
 
+    public static boolean isExit(String userInput, String commandToExecute) {
+
+	if (userInput.equals(commandToExecute)) {
+
+	    return true;
+	}
+	return false; 
+
+    }
+
+
+    
+    
     public static void main(String[] args) {
 		Scanner scanner = new Scanner(System.in); // Listen to the standard input (console)
 		System.out.print("> "); // Prompt
@@ -46,9 +59,18 @@ public class Cli {
 			}
 
 			String output = ""; // A variable named output of type String
-			if (command.equals("exit")) {
-				break; // Forces exit of the while loop
-			} 
+
+			// Get the value returned by the exit function
+
+
+			boolean isExitCommandExecuted = isExit(command,"exit");
+			boolean isLogoutCommandExecuted = isExit(command,"logout");
+			
+			if (isExitCommandExecuted == true || isLogoutCommandExecuted == true) {
+
+			  break; // Forces exit of the while loop
+			
+			}
 			else if (mainCommand.equals("date")) {
 				LocalDate currentDate = LocalDate.now(); // Create the date object
 				output = String.valueOf(currentDate); // Display current date into string format
