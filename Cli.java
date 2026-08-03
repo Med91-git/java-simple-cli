@@ -126,8 +126,8 @@ public class Cli {
 
 				String environmentVariableKey = environmentVariable.getKey();
 				String environmentVariableValue = environmentVariable.getValue();
-				
-				System.out.println(environmentVariableKey + " : " + environmentVariableValue);				
+
+				output += environmentVariableKey + " : " + environmentVariableValue + "\n";
 				
 			   }
 
