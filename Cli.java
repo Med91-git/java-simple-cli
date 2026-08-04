@@ -3,7 +3,8 @@ import java.time.LocalDate;
 import java.time.LocalTime;
 import java.time.LocalDateTime;
 import java.util.Map;
-
+//import java.nio.file.Files;
+import java.io.*;
 
 
 public class Cli {
@@ -68,7 +69,7 @@ public class Cli {
 			boolean isEchoExecuted = isCommandExecuted(mainCommand,"echo");
 			boolean isPrintExecuted = isCommandExecuted(mainCommand,"print");
 			boolean isPrintenvExecuted = isCommandExecuted(mainCommand,"printenv");
-
+			boolean isLsExecuted = isCommandExecuted(mainCommand,"ls");
 			
 			if (isExitExecuted == true || isLogoutExecuted == true) {
 
@@ -166,6 +167,39 @@ public class Cli {
 
 			  }
 			
+			}
+			else if (isLsExecuted == true) {
+
+			   // Check if ls command is followed by one argument at least
+				if (commandSplitted[1] != "") {
+
+			         // Get the command qargument (folder path)
+
+				 File file = new File(commandSplitted[1]);
+				 
+
+			         // Check if the specific file exists or not
+			         
+			         if (file.exists()) {
+
+			            // Get all filename of a directory
+			            
+			            String[] files = file.list();
+			            
+			            for (String f : files) {
+
+				         output += f + "\n";
+
+			      	    }
+
+			         }
+			         else {
+
+				    output = "Not a directory";
+			         }
+
+				}
+
 			}
 
 			else {
